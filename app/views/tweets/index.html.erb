@@ -1,3 +1,6 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
 <% @tweets.each do |e| %>
   <p>
     <%= e.message %>
@@ -22,7 +25,7 @@
 <% if session[:login_uid] %>
   <%= link_to 'ログアウト', top_logout_path %>
 <% else %>
-  <%= link_to 'ログイン', top_main_path %>
+  <%= link_to 'ログイン', "/top/login",method: :post %>
 <% end %>
 </p>
 

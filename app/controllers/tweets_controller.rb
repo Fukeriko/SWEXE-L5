@@ -13,6 +13,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(message: params[:tweet][:message], user_id: user.id)
     if @tweet.save
       #TODO: ツイートが成功したことをユーザに知らせる
+      flash[:notice] = 'つぶやきました'
       redirect_to root_path
     else
       render 'new'
